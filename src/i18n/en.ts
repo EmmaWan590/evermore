@@ -1,6 +1,7 @@
 export const en = {
   'app.name': 'Evermore',
-  'app.tagline': "A Universe of One's Own",
+  'app.tagline': 'For Zhenzhen, my beloved',
+  'app.motto': 'Love is the ultimate of the universe',
   'intro.hint': 'Tap anywhere to continue',
 
   'nav.universe': 'Universe',

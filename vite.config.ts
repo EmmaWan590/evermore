@@ -37,8 +37,8 @@ export default defineConfig({
       manifest: {
         name: 'Evermore',
         short_name: 'Evermore',
-        description: "A Universe of One's Own",
-        lang: 'en',
+        description: '致珍珍，我的挚爱',
+        lang: 'zh-CN',
         theme_color: '#080D14',
         background_color: '#080D14',
         display: 'standalone',

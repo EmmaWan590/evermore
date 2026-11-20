@@ -117,9 +117,10 @@ counts down. Empty states are invitations, not errors.
 - "Nothing here yet. Your story begins whenever you are ready."
 - "It may have drifted off. The universe is still where you left it."
 
-Chinese copy is written, not translated: 珍视，珍实 for the tagline, 循此苦旅，以达天际
-for Journey. The two dictionaries must contain exactly the same keys — the type
-system enforces it (`Record<MessageKey, string>`).
+Chinese copy is written, not translated: 致珍珍，我的挚爱 for the tagline,
+爱是宇宙的终极 beneath it, 循此苦旅，以达天际 for Journey. The two dictionaries
+must contain exactly the same keys — the type system enforces it
+(`Record<MessageKey, string>`).
 
 ## 10. Accessibility
 

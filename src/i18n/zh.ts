@@ -2,7 +2,8 @@ import type { MessageKey } from './en'
 
 export const zh: Record<MessageKey, string> = {
   'app.name': 'Evermore',
-  'app.tagline': '珍视，珍实',
+  'app.tagline': '致珍珍，我的挚爱',
+  'app.motto': '爱是宇宙的终极',
   'intro.hint': '轻触任意处继续',
 
   'nav.universe': '宇宙',

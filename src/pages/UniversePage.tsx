@@ -26,8 +26,12 @@ export function UniversePage() {
         <Wordmark className="text-[21px] sm:text-[26px]" />
       </h1>
 
+      <p className="mt-6 font-display text-[11.5px] tracking-[0.2em] text-starlight/55 sm:text-[12.5px]">
+        {t('app.motto')}
+      </p>
+
       {entries.length > 0 ? (
-        <p className="mt-5 text-[10px] uppercase tracking-[0.3em] text-dust/45">
+        <p className="mt-7 text-[10px] uppercase tracking-[0.3em] text-dust/45">
           {t('timeline.count', { n: entries.length })}
         </p>
       ) : null}

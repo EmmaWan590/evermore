@@ -76,6 +76,9 @@ export function WelcomePage() {
         <p className="mt-5 text-[9.5px] uppercase tracking-[0.42em] text-dust/80">
           {t('app.tagline')}
         </p>
+        <p className="mt-7 font-display text-[12.5px] leading-[1.9] tracking-[0.2em] text-starlight/70 sm:text-[13.5px]">
+          {t('app.motto')}
+        </p>
       </div>
 
       <button

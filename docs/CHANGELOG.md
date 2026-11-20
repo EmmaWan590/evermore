@@ -10,8 +10,9 @@ First release. Private, single-device, installable.
 ### Added
 
 - **The opening** — a night field, the seven stars of the Great Bear and an
-  eighth in blue, the name, and the line *A Universe of One's Own*. Plays once
-  per session, skippable, replayable from Profile.
+  eighth in blue, the name, the dedication *致珍珍，我的挚爱*, the line
+  *爱是宇宙的终极*, and a way in. Plays once per session, skippable, replayable
+  from Profile.
 - **Universe** — four worlds (Wealth, Health, Journey, Memories), each with
   its own line of copy, and the running total of everything written.
 - **Timeline** — every entry newest first, grouped under month headings, with
@@ -47,6 +48,9 @@ First release. Private, single-device, installable.
   the top as well.
 - Explore prints a count only where there is something to count, so four empty
   categories stay quiet instead of showing four zeros.
+- The old tagline is replaced by the dedication 致珍珍，我的挚爱, and 爱是宇宙的终极
+  now closes both the opening and the Universe; the manifest, the meta
+  description and the sidebar carry the dedication too.
 
 ### Fixed
 
