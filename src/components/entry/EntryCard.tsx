@@ -25,10 +25,20 @@ export function EntryCard({ entry, className }: EntryCardProps) {
     .map((id) => objectMap.get(id)?.name)
     .filter((name): name is string => Boolean(name))
 
+  // The place typed into an entry is linked as a place object; show it once.
+  const placeNames = new Set(
+    entry.objectIds.flatMap((id) => {
+      const object = objectMap.get(id)
+      return object?.kind === 'place' ? [object.name.trim().toLowerCase()] : []
+    }),
+  )
+  const location =
+    entry.location && !placeNames.has(entry.location.trim().toLowerCase()) ? entry.location : null
+
   const meta = [
     formatDay(entryDay(entry), lang),
     entry.category ? t(`world.${entry.category}`) : null,
-    entry.location,
+    location,
     names.length ? names.join(' · ') : null,
   ].filter((value): value is string => Boolean(value))
 

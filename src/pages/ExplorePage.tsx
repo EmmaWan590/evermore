@@ -46,7 +46,7 @@ export function ExplorePage() {
                 </p>
               </div>
               <span className="tabular shrink-0 text-[10px] tracking-[0.1em] text-dust/35">
-                {items.length}
+                {items.length > 0 ? items.length : ''}
               </span>
             </Link>
           )

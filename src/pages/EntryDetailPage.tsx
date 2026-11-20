@@ -94,6 +94,13 @@ export function EntryDetailPage() {
     .map((objectId) => objectMap.get(objectId))
     .filter((object): object is EverObject => Boolean(object))
 
+  // The place typed into an entry is linked as a place object; show it once.
+  const placeNames = new Set(
+    objects.filter((object) => object.kind === 'place').map((object) => object.name.trim().toLowerCase()),
+  )
+  const showLocation =
+    entry.location && !placeNames.has(entry.location.trim().toLowerCase()) ? entry.location : null
+
   const remove = async () => {
     try {
       await deleteEntry(entry.id)
@@ -119,7 +126,7 @@ export function EntryDetailPage() {
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[9.5px] uppercase tracking-[0.2em] text-dust/50">
           <span className="tabular">{formatDay(entryDay(entry), lang)}</span>
           {entry.category ? <span>{t(CATEGORY_LABEL[entry.category])}</span> : null}
-          {entry.location ? <span>{entry.location}</span> : null}
+          {showLocation ? <span>{showLocation}</span> : null}
         </p>
         <h1 className="mt-4 font-display text-[23px] leading-[1.45] tracking-[0.01em] text-starlight sm:text-[27px]">
           {title}

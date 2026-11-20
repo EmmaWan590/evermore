@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 import { useI18n } from '../../i18n'
 
 interface SheetProps {
@@ -32,8 +33,10 @@ export function Sheet({ open, onClose, title, children, footer }: SheetProps) {
 
   if (!open) return null
 
-  return (
-    <div className="fixed inset-0 z-40 flex items-end justify-center sm:items-center sm:p-6">
+  // Portalled to the body: a page's fade animation makes a stacking context,
+  // which would otherwise trap the sheet under the phone navigation.
+  return createPortal(
+    <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6">
       <button
         type="button"
         aria-label={t('common.close')}
@@ -63,6 +66,7 @@ export function Sheet({ open, onClose, title, children, footer }: SheetProps) {
         <div className="mt-6">{children}</div>
         {footer ? <div className="mt-8 flex justify-end gap-3">{footer}</div> : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

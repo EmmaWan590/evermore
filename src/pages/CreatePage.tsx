@@ -174,18 +174,10 @@ export function CreatePage() {
 
   return (
     <div className="animate-fade pb-8">
-      <header className="flex items-start justify-between gap-6">
+      <header>
         <h1 className="font-display text-[20px] leading-snug tracking-[0.02em] text-starlight/90 sm:text-[23px]">
           {editing ? t('detail.edit') : t('create.prompt')}
         </h1>
-        <Button
-          variant="ghost"
-          onClick={() => void save()}
-          disabled={!canSave || saving}
-          className="shrink-0"
-        >
-          {saving ? t('create.saving') : t('create.save')}
-        </Button>
       </header>
 
       <div className="mt-10">
@@ -300,13 +292,13 @@ export function CreatePage() {
         <Button variant="quiet" onClick={() => navigate(-1)}>
           {t('common.cancel')}
         </Button>
-        <Button variant="ghost" onClick={() => void save()} disabled={!canSave || saving}>
+        <Button variant="primary" onClick={() => void save()} disabled={!canSave || saving}>
           {saving ? t('create.saving') : t('create.save')}
         </Button>
       </div>
 
       {!canSave ? (
-        <p className="mt-4 text-right text-[11px] text-dust/40">{t('create.empty')}</p>
+        <p className="mt-4 text-center text-[11px] text-dust/40">{t('create.empty')}</p>
       ) : null}
     </div>
   )

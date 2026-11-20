@@ -141,7 +141,7 @@ export function ExploreKindPage() {
             {t('explore.allHere', { kind: t(LABEL[kind]) })}
           </h1>
           <p className="mt-2.5 text-[9.5px] uppercase tracking-[0.26em] text-dust/40">
-            {t('timeline.count', { n: list.length })}
+            {list.length > 0 ? t('timeline.count', { n: list.length }) : ''}
           </p>
         </div>
         <Button variant="ghost" onClick={() => setSheetOpen(true)} className="shrink-0">

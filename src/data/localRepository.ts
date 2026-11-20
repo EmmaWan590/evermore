@@ -35,14 +35,23 @@ async function getEntry(id: string): Promise<Entry | undefined> {
 
 async function createEntry(input: EntryInput): Promise<Entry> {
   const now = new Date().toISOString()
+  const location = input.location?.trim() ? input.location.trim() : null
+  const objectIds = normaliseObjectIds(input.objectIds)
+
+  // A place typed into an entry is part of the world, so it becomes a place object.
+  if (location) {
+    const place = await createObject('place', location)
+    if (!objectIds.includes(place.id)) objectIds.push(place.id)
+  }
+
   const entry: Entry = {
     id: newId(),
     title: (input.title ?? '').trim(),
     content: input.content ?? '',
     category: input.category ?? null,
     eventDate: input.eventDate ?? null,
-    location: input.location?.trim() ? input.location.trim() : null,
-    objectIds: normaliseObjectIds(input.objectIds),
+    location,
+    objectIds,
     attachmentIds: [],
     createdAt: now,
     updatedAt: now,
@@ -72,6 +81,11 @@ async function updateEntry(id: string, patch: EntryInput): Promise<Entry> {
     objectIds:
       patch.objectIds === undefined ? current.objectIds : normaliseObjectIds(patch.objectIds),
     updatedAt: new Date().toISOString(),
+  }
+
+  if (next.location) {
+    const place = await createObject('place', next.location)
+    if (!next.objectIds.includes(place.id)) next.objectIds = [...next.objectIds, place.id]
   }
 
   await db.put('entries', next)
