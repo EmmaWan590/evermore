@@ -1,11 +1,14 @@
 # Evermore
 
-**A Universe of One's Own**
+**For Zhenzhen, my beloved** — *love is the ultimate of the universe.*
 
 A private, no-account place to keep a life: the days, the people, the places,
 the things and the ideas worth not losing. Everything is written to this
 browser's own storage. Nothing is uploaded, nothing is tracked, and there is
 no server that could read it.
+
+Live at <https://emmawan590.github.io/evermore/> — add it to a phone's home
+screen and it behaves like an app; the memories never leave the device.
 
 <!-- __CONTINUE__ -->
 
@@ -62,6 +65,10 @@ npm run build
 Then publish the contents of `dist/` (any static host works). A ready-made
 workflow lives in `.github/workflows/deploy.yml`: push to `main`, and
 Settings → Pages → Source must be set to *GitHub Actions* once.
+
+This repository is already wired up that way: `main` deploys to
+<https://emmawan590.github.io/evermore/>. On a throttled connection a push can
+fail with `RPC failed; HTTP 408`; `git config http.version HTTP/1.1` fixes it.
 
 ## Project layout
 
