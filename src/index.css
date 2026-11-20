@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Evermore palette — DESIGN.md 5.4. Never introduce colours outside this list. */
+  --color-void: #080d14;
+  --color-deep: #111827;
+  --color-starlight: #e6d9b8;
+  --color-eighth: #7ea6c6;
+  --color-dust: #a2a5ae;
+  --color-divider: #29313d;
+
+  --font-display: 'Playfair Display Variable', 'Playfair Display', Georgia, 'Songti SC', serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+
+  --animate-twinkle: twinkle 7s ease-in-out infinite;
+  --animate-rise: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade: fade 0.9s ease-out both;
+  --animate-glow: glow 9s ease-in-out infinite;
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.45;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --app-surface: #080d14;
+  }
+
+  html[data-appearance='deep'] {
+    --app-surface: #111827;
+  }
+
+  html {
+    background-color: var(--app-surface);
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-color: #29313d transparent;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--app-surface);
+    color: var(--color-starlight);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-wrap: break-word;
+  }
+
+  ::selection {
+    background-color: rgb(126 166 198 / 0.3);
+  }
+
+  :focus-visible {
+    outline: 1px solid #7ea6c6;
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  ::placeholder {
+    color: #6d727c;
+    opacity: 1;
+  }
+
+  /* Thin, quiet scrollbars. */
+  * {
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #29313d;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  /* Faint vertical rhythm line used behind long-form reading views. */
+  .hairline {
+    border-color: #29313d;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
